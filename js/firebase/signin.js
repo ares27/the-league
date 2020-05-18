@@ -30,7 +30,7 @@ signInForm.addEventListener('submit', (e) => {
             $('.alert-danger-login').text('');
 
             // go to url when logged in
-            window.location.href = "/routes/home.html";
+            window.location.href = "./routes/home.html";
         })
         .catch(err => {
             console.log("err", err)
