@@ -1,52 +1,52 @@
-const signInForm = document.querySelector('#login-form')
-let email = $('#email-input')
-let password = $('#password-input')
-let emailUp = $('#ema-input')
-let passwordUp = $('#pass-input')
-let slogan = $('#slogan-input')
-// const signUpForm = document.querySelector('#signup-form')
+const loginHTMLForm = document.querySelector('#login-html-form')
+const email = $('#email-html-input')
+const password = $('#password-html-input')
+// let emailUp = $('#ema-input')
+// let passwordUp = $('#pass-input')
+// let slogan = $('#slogan-input')
+const signUpForm = document.querySelector('#signup-form')
 
 
 // Sign-In
-signInForm.addEventListener('submit', (e) => {
+loginHTMLForm.addEventListener('submit', (e) => {
     
     e.preventDefault();
     
     let obj = { 
-        email: signInForm["email-input"].value, 
-        password: signInForm["password-input"].value 
+        email: loginHTMLForm["email-html-input"].value, 
+        password: loginHTMLForm["password-html-input"].value 
     };    
+
     console.log(obj);
     
     // login user 
     auth.signInWithEmailAndPassword(obj.email, obj.password)
-        .then(cred => {
-            //console.log(cred.user);  
+         .then(cred => {
+             //console.log(cred.user);  
 
-            //reset input fields
+             //reset input fields
 
 
-            // set alert err message
-            $('.alert-danger-login').text('');
+             // set alert err message
+             $('.alert-danger-login').text('');
 
-            // go to url when logged in
-            window.location.href = "./routes/home.html";
-        })
-        .catch(err => {
-            console.log("err", err)
-            $('.alert-danger-login').text(err.message);
-        })
+             // go to url when logged in
+             window.location.href = "./routes/home.html";
+         })
+         .catch(err => {
+             console.log("err", err)
+             $('.alert-danger-login').text(err.message);
+         })
             
    
     // reset form inputs
-    signInForm.reset();
+    // signInForm.reset();
 
 })
 
 
 
 // Sign-Up
-/*
 signUpForm.addEventListener('submit', (e) => {
     
     e.preventDefault();
@@ -74,13 +74,13 @@ signUpForm.addEventListener('submit', (e) => {
         .then(() => {
 
             // reset form inputs
-            signInForm.reset();
+            signUpForm.reset();
 
             // set err
             $('.alert-danger-signup').text('');
 
             // goto when logged in
-            window.location.href = "/routes/home.html";
+            window.location.href = "./routes/home.html";
         })
         .catch(err => {
             console.log(err);
@@ -88,6 +88,3 @@ signUpForm.addEventListener('submit', (e) => {
         })
    
 })
-*/
-
-

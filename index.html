@@ -1,120 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>The League</title>
-	
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<link rel="stylesheet" href="./css/shards.min.css"/>
-	<link rel="stylesheet" href="./css/main.css">
-	<link rel="stylesheet" href="./css/style.css">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>The League - Login</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
-<body class="login-body">
-	<div class="container h5">
 
-			
-			<form id="login-form">
-				
-				<div class="form-group">
-				  <label for="email-input">Email Address</label>
-				  <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp" />
-				  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-				</div>
-				
-				<div class="form-group">
-				  <label for="password-input">Password</label>
-				  <input type="password" class="form-control" id="password-input" />
-				</div>
-				
-				<div class="form-group">
-				  <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1" /> -->
-				  <small class="form-check-label" for="exampleCheck1">Dont have an account? <a href="#" data-toggle="modal" data-target="#login-modal">Sign Up</a></small>
-				</div> 
+<body class="bg-gradient-success">
 
-				
+  <div class="container" style="margin-top: 8%;">
 
-				<button type="submit" class="btn btn-outline-dark">SUBMIT</button>
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
 
-				<div class="alert-sm alert-danger alert-danger-login mt-2" role="alert">
-					
-				</div>
-			
-			</form>
+      <div class="col-xl-10 col-lg-12 col-md-9">
 
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                  </div>
+                  <form class="user" id="login-html-form">
+                    <div class="form-group">
+                      <input type="email" class="form-control form-control-user" id="email-html-input" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control form-control-user" id="password-html-input" placeholder="Password">
+                    </div>
+                    <!-- <div class="form-group">
+                      <div class="custom-control custom-checkbox small">
+                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                        <label class="custom-control-label" for="customCheck">Remember Me</label>
+                      </div>
+                    </div> -->
+                    <!-- <a href="index.html" class="btn btn-primary btn-user btn-block" id="login-btn">
+                      Login
+                    </a> -->
+                    <button class="btn btn-primary btn-user btn-block" id="login-btn">
+                      Login
+                    </button>
+                    <hr>
+                    <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
+                      <i class="fab fa-google fa-fw"></i> Login with Google
+                    </a>
+                    <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                      <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                    </a> -->
+                    <div class="text-center text-danger alert-danger-login">
+                     
+                    </div>
+                    
+                  </form>
+                  <hr>
+                  <!-- <div class="text-center">
+                    <a class="small" href="forgot-password.html">Forgot Password?</a>
+                  </div> -->
+                  <div class="text-center">
+                    <a class="small" href="#" data-toggle="modal" data-target="#login-modal">Create an Account!</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
+      </div>
 
+    </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			<!--    Sign-Up Modal     -->
-			<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-				  <div class="modal-content">
-					<div class="modal-header">
-					  <h5 class="modal-title" id="loginModalLabel">Sign Up</h5>
-					  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					  </button>
-					</div>
-					<div class="modal-body">
-						
-					  <form id="signup-form">
-						
-						<div class="form-group">
-						  <label for="email-input">Email:</label>
-						  <input type="email" class="form-control" id="ema-input" aria-describedby="emailHelp" placeholder="Enter email">
-						  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-						</div>
-						
-						<div class="form-group">
-						  <label for="password-input">Password:</label>
-						  <input type="password" class="form-control" id="pass-input" placeholder="Password">
-						</div>
-
-						<div class="form-group">
-							<label for="name-input">Name (AKA):</label>
-							<input type="text" class="form-control" id="name-input" placeholder="Name or (Also known as): The SaberTooth Baller">
-						</div>
-						
-						<div class="form-group">
-							<label for="slogan-input">Slogan:</label>
-							<input type="text" class="form-control" id="slogan-input" placeholder="eg: Just do it!">
-						</div>
-
-						<button type="submit" class="btn btn-primary btn-block mt-4" id="signin-btn">SIGN UP</button>
-
-						<div class="alert-sm alert-danger alert-danger-signup btn-block mt-2" role="alert">
-						
-						</div>
-
-					  </form>
-		  
-					</div>
-					<div class="modal-footer">
-					  <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Nope</button> 
-					  <button type="button" class="btn btn-primary btn-block">Sign-In</button>
-					  -->
-
-
-					</div>
-				  </div>
-				</div>
-			</div>
+  </div>
 
 
 
@@ -123,15 +96,66 @@
 
 
 
+  <!--    Sign-Up Modal     -->
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Sign Up</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form id="signup-form">
+        
+        <div class="form-group">
+          <label for="email-input">Email:</label>
+          <input type="email" class="form-control" id="ema-input" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="password-input">Password:</label>
+          <input type="password" class="form-control" id="pass-input" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+          <label for="name-input">Name (AKA):</label>
+          <input type="text" class="form-control" id="name-input" placeholder="Name or (Also known as): The SaberTooth Baller">
+        </div>
+        
+        <div class="form-group">
+          <label for="slogan-input">Slogan:</label>
+          <input type="text" class="form-control" id="slogan-input" placeholder="eg: Just do it!">
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block mt-4" id="signin-btn">SIGN UP</button>
+
+        <div class="alert-sm alert-danger alert-danger-signup btn-block mt-2" role="alert">
+        
+        </div>
+
+        </form>
+  
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Nope</button> 
+        <button type="button" class="btn btn-primary btn-block">Sign-In</button>
+        -->
+
+
+      </div>
+      </div>
+    </div>
+  </div>
 
 
 
 
 
 
-		
-	
-	</div>
 
 
 
@@ -145,22 +169,35 @@
 
 
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
 
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<script src="./vendor/shards.min.js"></script>
-<script src="./js/firebase/config.js"></script>
-<script src="./js/firebase/auth.js"></script>
-<script src="./js/firebase/signin.js"></script>
 
+
+
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+  <script src=" ./js/firebase/config.js"></script>
+
+  <script src="./js/firebase/login.js"></script>
 
 </body>
+
 </html>
