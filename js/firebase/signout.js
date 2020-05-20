@@ -1,4 +1,4 @@
-const logoutBtn = $('#signout-link')
+const logoutBtn = $('.logout-btn')
 
 // Sign-Out
 logoutBtn.on('click', () => {
@@ -11,3 +11,4 @@ logoutBtn.on('click', () => {
             window.location.href = "../index.html";
         })
 })
+
