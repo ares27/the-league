@@ -32,15 +32,12 @@ loginHTMLForm.addEventListener('submit', (e) => {
 
              // go to url when logged in
              window.location.href = "./routes/home.html";
+             
          })
          .catch(err => {
              console.log("err", err)
              $('.alert-danger-login').text(err.message);
          })
-            
-   
-    // reset form inputs
-    // signInForm.reset();
 
 })
 

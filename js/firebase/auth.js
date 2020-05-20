@@ -11,10 +11,10 @@ auth.onAuthStateChanged(user => {
         user.getIdTokenResult().then(idTokenResult => {
             user.admin = idTokenResult.claims.admin;
 
-            console.log("Admin: ", user.admin);
+            console.log("admin: ", user.admin);
             
             setupUserUI(user);
-            setupMyCards(user);
+            // setupMyCards(user);
         })
 
 

@@ -2,6 +2,7 @@
 db.collection('matches').get()
     .then(snapshot => {
         //console.log(snapshot.docs);
+        setupAllMatches(snapshot.docs)
         setupMatches(snapshot.docs);
     })
     .catch(err => {
@@ -12,8 +13,10 @@ db.collection('matches').get()
 // Get players data
 db.collection('players').get()
     .then(snapshot => {
-        //console.log(snapshot.docs);
-        setupPlayers(snapshot.docs);
+        //console.log("allplayers:",snapshot.docs);
+        playerOptions(snapshot.docs);
+        //setupAllPlayers(snapshot.docs);
+        // setupPlayers(snapshot.docs);
     })
     .catch(err => {
         console.log("err: ", err);
