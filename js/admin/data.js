@@ -1,7 +1,9 @@
-// Get players data
-db.collection('players').get().then(snapshot => {
+db.collection('players').get()
+    .then(snapshot => {
         //console.log("allplayers:",snapshot.docs);
-        setupAllPlayers(snapshot.docs);
+        
+        // Get Player options
+        playerOptions(snapshot.docs);
         
     })
     .catch(err => {

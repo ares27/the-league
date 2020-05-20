@@ -1,7 +1,22 @@
 const allPlayersRow = document.querySelector('.all-players-row');
 const playerCard = '';
-// setup all players
 
+
+// Get all Players data
+db.collection('players').get()
+     .then(snapshot => {
+       
+         //console.log("allplayers:",snapshot.docs);         
+         setupAllPlayers(snapshot.docs);
+     })
+     .catch(err => {
+         console.log("err: ", err);
+     })
+
+
+
+
+// Setup all Players
 const setupAllPlayers = (data) => {
 
     let html = '';

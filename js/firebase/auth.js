@@ -15,7 +15,12 @@ auth.onAuthStateChanged(user => {
             
             setupUserUI(user);
             // setupMyCards(user);
+
         })
+
+
+
+      
 
 
         

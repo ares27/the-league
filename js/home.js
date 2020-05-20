@@ -11,16 +11,25 @@ let matchCardHTML = '';
 const welcomeContainer = document.querySelector('.welcome-container')
 
 const adminItems = document.querySelectorAll('.admin')
+const achievementLinks = document.querySelector('.my-achievements-link')
+
+
 
 //  Welcome User 
 const setupUserUI = (user) => {
     
     if(user) {
         //console.log("setupUserUI", user);
-        console.log(user.admin ? 'user is admin': 'user is not admin');
-        // check if user is admin
+        console.log(user.admin ? user.email + ' is admin ' + user.admin : 'user is not admin');
+        
+        // If User admin
         if(user.admin) {
              adminItems.forEach(item => item.style.display = 'block');
+        }
+
+        // If User admin
+        if(user.admin!==true) {
+            achievementLinks.style.display = 'block';
         }
 
         let html = `
@@ -29,6 +38,7 @@ const setupUserUI = (user) => {
         `;
 
         welcomeContainer.innerHTML = html;
+        
         
 
     } else {

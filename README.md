@@ -1,3 +1,3 @@
 # the-league
 
-The League App.
+The League App - in progress.
