@@ -58,26 +58,27 @@
 
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item active">
+      <li class="nav-item active admin" style="display: none;">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
+          <span>Admin Pages</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Admin Panel:</h6> 
             <a class="collapse-item" href="./AllMatches.html">All Matches</a>
             <a class="collapse-item" href="./AllPlayers.html">All Players</a>
-            <a class="collapse-item admin" href="./AllPlayerCards.html">All Player Cards</a>
+            <a class="collapse-item admin" href="../../routes/admin/AllPlayerCards.html">All Player Cards</a>
           </div>
         </div>
+         <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
       </li>  
 
      
 
 
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
+     
 
 
       <li class="nav-item active my-achievements-link" style="display: none;">
@@ -154,7 +155,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small img-profile-name">Byron Jay</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small img-profile-name">Jehoma</span>
                 <img class="img-profile rounded-circle" src="../assets/img/user.svg">
               </a>
               <!-- Dropdown - User Information -->
@@ -416,14 +417,16 @@
 
   <script src="../vendor/shards.min.js"></script>
   <script src="../js/firebase/config.js"></script>
-  <script src="../js/firebase/auth.js"></script>
+  <!-- <script src="../js/firebase/auth.js"></script> -->
   <script src="../js/firebase/signout.js"></script>
 
   <!-- <script src="../js/firebase/fb-data.js"></script> -->
-  <script src="../js/home.js"></script>
+  <!-- <script src="../js/home.js"></script> -->
   <script src="../js/admin/data.js"></script>
   <!-- <script src="../js/admin/allPlayers.js"></script> -->
   <script src="../js/admin/addMatch.js"></script>
+  <script src="../js/listener.js"></script>
+
 
 </body>
 

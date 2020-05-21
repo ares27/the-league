@@ -11,7 +11,7 @@ let matchCardHTML = '';
 const welcomeContainer = document.querySelector('.welcome-container')
 
 const adminItems = document.querySelectorAll('.admin')
-const achievementLinks = document.querySelector('.my-achievements-link')
+let achievementLinks = document.querySelector('.my-achievements-link')
 
 
 

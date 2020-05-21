@@ -18,8 +18,8 @@
   <!-- Custom styles for this template-->
   <link href="../../css/sb-admin/sb-admin-2.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../../css/shards.min.css"/>
-    <link rel="stylesheet" href="../../css/main.css"/>
-    <link rel="stylesheet" href="../../css/cards/match-card.css"/>
+	<link rel="stylesheet" href="../../css/main.css"/>
+	<link rel="stylesheet" href="../../css/cards/match-card.css"/>
 
 </head>
 
@@ -35,7 +35,7 @@
     <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="./home.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../home.html">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-futbol"></i>
         </div>
@@ -61,31 +61,30 @@
 
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item active admin">
+      <li class="nav-item active">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Admin Pages</span>
+          <span>Pages</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Admin Panel:</h6> 
-            <a class="collapse-item" href="#">All Matches</a>
-            <a class="collapse-item" href="./AllPlayers.html">All Players</a>
-            <a class="collapse-item admin" href="./AllPlayerCards.html">All Player Cards</a>
+            <a class="collapse-item" href="../AllMatches.html">All Matches</a>
+            <a class="collapse-item" href="../AllPlayers.html">All Players</a>
+            <a class="collapse-item admin" href="#">All Player Cards</a>
           </div>
         </div>
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
       </li> 
 
      
 
-      
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
 
 
 
 
-      <li class="nav-item active my-achievements-link" style="display: none;">
+      <li class="nav-item active" >
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseAchievements" aria-expanded="true" aria-controls="collapseAchievements">
           <i class="fas fa-fw fa-folder"></i>
           <span>My Achievements</span>
@@ -93,7 +92,7 @@
         <div id="collapseAchievements" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <!-- <h6 class="collapse-header">Login Screens:</h6> -->
-            <a class="collapse-item" href="./myAchievements.html">My Cards</a>
+            <a class="collapse-item" href="./users/MyAchievements.html">My Cards</a>
           </div>
         </div>
 
@@ -177,15 +176,11 @@
         </nav>
         <!-- End of Topbar -->
 
-
-
-
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">My Achievements</h1>
+          <h1 class="h3 mb-4 text-gray-800">All Player Cards</h1>
 
         </div>
         <!-- /.container-fluid -->
@@ -196,7 +191,7 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <div class="row all-my-achievements-row">
+          <div class="row all-playercards-row">
             
 
           </div>
@@ -277,19 +272,8 @@
 
 
 
-      <!--  Custom Logout function  -->
-      <script>
-        function logout() {
-          auth.signOut()
-          .then(res => {
-              console.log("User logged out: ", res);
-              
-              // navigate to index page
-              window.location.href = "/";
-          })
-        }
-      </script>
-      <!--  END Custom Logout function  -->
+
+
 
 
 
@@ -333,7 +317,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="#" onclick="logout()">Logout</a>
+          <a class="btn btn-primary logout-btn" href="#">Logout</a>
         </div>
       </div>
     </div>
@@ -358,11 +342,10 @@
   <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
 
   <script src="../../js/firebase/config.js"></script>
-  <!-- <script src="../../js/firebase/auth.js"></script> -->
+  <!-- <script src="../js/firebase/auth.js"></script> -->
   <!-- <script src="../js/firebase/fb-data.js"></script> -->
-  <script src="../../js/users/MyAchievements.js"></script>
- 
-  <script src="../../js/listener.js"></script>
+  <script src="../../js/admin/allPlayerCards.js"></script>
+  <script src="../../js/firebase/signout.js"></script>
 
 </body>
 

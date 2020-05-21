@@ -24,28 +24,27 @@ const setupAllMatches = (data) => {
     
         let myHTML = `
             <div class="col mb-4">
-                <div class="card match-card" style="width: 20em;">
-                        <img src="https://cdn.weartesters.com/wp-content/uploads/2017/09/nikexea-hypervenom-3-2.jpg" class="card-img-top" alt="">
-                        <div class="card-body">
-                        <p class="card-title h3">Match Day</p>
-                        <p>    
-                            <div class="row justify-content-between">
-                                <div class="col">${match.p1name}</div>
-                                <div class="col">VS</div>
-                                <div class="col">${match.p2name}</div>
-                            </div>
-                        </p>
-                        <p>
-                            <div class="row justify-content-between">
-                                <div class="col">${match.playeronescore}</div>
-                                <div class="col"></div>
-                                <div class="col">${match.playertwoscore}</div>
-                            </div>
-                        <p/>
-                        <p class="card-text"><small class="text-muted">Winner: ${match.winner}</small></p>
-                        <p class="card-text"><small class="text-muted">Loser: ${match.loser}</small></p>
-                        <small class="text-muted">Last updated 3 mins ago</small></p>
-                        
+                <div class="card player-card text-center" style="width: 20em;">
+                    <img src="https://cdn.weartesters.com/wp-content/uploads/2017/09/nikexea-hypervenom-3-2.jpg" class="card-img-top" alt="">
+                    <div class="card-body">
+                    <h5 class="card-title">Match Card</h5>
+                    <p>    
+                        <div class="row justify-content-between">
+                            <div class="col">${match.p1name}</div>
+                            <div class="col text-warning text">VS</div>
+                            <div class="col">${match.p2name}</div>
+                        </div>
+                    </p>
+                    <p>
+                        <div class="row justify-content-between">
+                            <div class="col">${match.playeronescore}</div>
+                            <div class="col"></div>
+                            <div class="col">${match.playertwoscore}</div>
+                        </div>
+                    <p/>
+                    <p class="card-text"><small class="text-muted">Winner: ${match.winner}</small></p>
+                    <p class="card-text"> <small class="text-muted">Last updated 3 mins ago</small> </p>
+                    </div>
                 </div>
             </div>
         `;

@@ -8,7 +8,8 @@ logoutBtn.on('click', () => {
             console.log("User logged out: ", res);
             
             // navigate to index page
-            window.location.href = "../index.html";
+            // window.location.href = "../index.html";
+            window.location.href = "/";
         })
 })
 
