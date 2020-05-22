@@ -36,6 +36,21 @@ auth.onAuthStateChanged(user => {
 
         })
 
+        // Set total Matches
+        db.collection('matches').get().then(snapshot => {
+            $('.total-matches-div').text(snapshot.docs.length);         
+        }).catch(err => {
+            console.log("Error - cannot get total matches: ", err);
+        });
+
+        // Set total Players
+        db.collection('players').get().then(snapshot => {
+            $('.total-players-div').text(snapshot.docs.length);         
+        }).catch(err => {
+            console.log("Error - cannot get total players: ", err);
+        });
+        
+
 
     } else {
         console.log("User logged out: ", user);
