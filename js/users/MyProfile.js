@@ -1,4 +1,8 @@
-let userId = '';
+let userId  = '';
+let p1Games = '';
+let p2Games = '';
+let totalGames = '';
+let totalWins = '';
 
 // Listen for auth state
 auth.onAuthStateChanged(user => {
@@ -8,6 +12,7 @@ auth.onAuthStateChanged(user => {
         
         console.log("User logged in: ", user);
         setupUserProfile(user);
+       
            
         
     } else {
@@ -27,9 +32,8 @@ const setupUserProfile = (user) => {
     
     // Get player info
     db.collection("players").doc(userRef).get().then(doc => {  
-            
         const player = doc.data(); 
-        console.log(doc.id, ", user ==> ", player);
+        //console.log(doc.id, ", user ==> ", player);
 
         // Set user field values
         $('#email-profile').val(player.email).attr('readonly', true);
@@ -39,12 +43,48 @@ const setupUserProfile = (user) => {
     }, err => {
         console.log("Error getting user data: ", err);
     })
+
+    
+    let matchRef = db.collection("matches");
+
+    // Get p1Games
+    matchRef.where("playerone", "==", userRef).get().then(snapshot => {
+        p1Games = snapshot.docs.length; 
+        //console.log(p1Games);
+    })
+   
+    // Get p2Games
+    matchRef.where("playertwo", "==", userRef).get().then(snapshot => {
+        p2Games = snapshot.docs.length;
+        //console.log(p2Games);
+        
+        totalGames = p1Games + p2Games;        
+
+        $('#my-total-games').val(totalGames).attr('readonly', true);;
+    })
+
+    // Get total Wins
+    matchRef.where("winnerId", "==", userRef).get().then(snapshot => {
+        totalWins = snapshot.docs.length;
+        //console.log("totalWins: ", totalWins);
+                
+
+        $('#my-total-wins').val(totalWins).attr('readonly', true);
+    })
+
+    matchRef.where("loserId", "==", userRef).get().then(snapshot => {
+        let totalLosses = snapshot.docs.length;
+        //console.log("totalLosses: ", totalLosses);
+        $('#my-total-losses').val(totalLosses).attr('readonly', true);
+    })
+
+    
+    
+    //console.log(totalGames);
+
+    //console.log(matchRef.where("playertwo", "==", userRef).get());
     
 }
-
-
-
-
 
 
 

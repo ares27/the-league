@@ -26,18 +26,28 @@ const setupAllPlayers = (data) => {
         const player = doc.data();
     
         let myHTML = `
-             <div class="col mb-4">
-               <div class="card player-card" style="width: 20em;">
-                   <img src="https://cdn.weartesters.com/wp-content/uploads/2017/09/nikexea-hypervenom-3-2.jpg" class="card-img-top" alt="">
-                   <div class="card-body">
-                   <h5 class="card-title">${player.name}</h5>
-                     <p class="card-text"> <strong>Slogan: ${player.slogan}</strong></p>
-                     <!--<p class="card-text"> <strong>Wins:</strong> 10</p>
-                     <p class="card-text"> <strong>Losses:</strong> 5</p> -->
-                     <p class="card-text"><small class="text-muted">Signed Up: ${player.createddate}</small></p>
-                   </div>
-               </div>
-             </div>
+            <div class="card">
+                <div class="card-image"></div>
+                <div class="card-text">
+                <span class="date">4 days ago</span>
+                <h3>${player.name}</h3>
+                <p>${player.slogan}</p>
+                </div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <div class="value">4<sup>m</sup></div>
+                        <div class="type">WINS</div>
+                    </div>
+                    <div class="stat">
+                        <div class="value">20</div>
+                        <div class="type">AGE</div>
+                    </div>
+                    <div class="stat">
+                        <div class="value">R</div>
+                        <div class="type">FOOT</div>
+                    </div>
+                </div>
+            </div>
          `;
 
          html += myHTML;
@@ -46,3 +56,7 @@ const setupAllPlayers = (data) => {
     allPlayersRow.innerHTML = html;
   
 }
+
+
+
+
