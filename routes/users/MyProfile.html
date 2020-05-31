@@ -17,7 +17,7 @@
 
   <!-- Custom styles for this template-->
   <link href="../../css/sb-admin/sb-admin-2.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../../css/shards.min.css"/>
+  <!-- <link rel="stylesheet" href="../../css/shards.min.css"/> -->
     <link rel="stylesheet" href="../../css/main.css"/>
     <link rel="stylesheet" href="../../css/cards/MyProfile.css"/>
 
@@ -35,7 +35,7 @@
     <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="./home.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../home.html">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-futbol"></i>
         </div>
@@ -69,9 +69,9 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Admin Panel:</h6> 
-            <a class="collapse-item" href="#">All Matches</a>
-            <a class="collapse-item" href="./AllPlayers.html">All Players</a>
-            <a class="collapse-item admin" href="./AllPlayerCards.html">All Player Cards</a>
+            <a class="collapse-item" href="../admin/AllMatches.html">All Matches</a>
+            <a class="collapse-item" href="../AllPlayers.html">All Players</a>
+            <a class="collapse-item admin" href="../admin/AllPlayerCards.html">All Player Cards</a>
           </div>
         </div>
         <!-- Divider -->
@@ -204,7 +204,7 @@
                 
                 <div class="col-md-3 mt-2 mb-4">
                     <div class="text-center">
-                      <img src="//placehold.it/200" class="avatar img-circle" alt="avatar">
+                      <img src="https://avatarfiles.alphacoders.com/129/129087.jpg" width="150px" height="150px" class="avatar img-circle" alt="avatar">
                       <!-- <h6>Upload a different photo...</h6>
                       
                       <input type="file" class="form-control"> -->
@@ -226,21 +226,33 @@
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Email:</label>
                             <div class="col-lg-4">
-                            <input class="form-control" type="text" value="" placeholder="" />
+                            <input class="form-control" type="text" id="email-profile" value=""/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Name:</label>
                             <div class="col-lg-4">
-                            <input class="form-control" type="text" value="" />
+                            <input class="form-control" id="name-profile" type="text" value="" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Slogan:</label>
                             <div class="col-lg-4">
-                            <input class="form-control" type="text" value="" />
+                            <input class="form-control" type="text" id="slogan-profile" value="" />
                             </div>
                         </div>
+                        <div class="form-group">
+                          <!-- <label class="col-lg-3 control-label">Avatar:</label> -->
+                          
+                          
+                          <div class="col-lg-4">
+                          <!-- <input class="form-control" type="file" id="upload-file"/> -->
+                          
+                          <!--  UPLOAD AVATAR   -->
+                          <!-- <a class="btn btn-primary text-white btn-block" data-toggle="modal" data-target="#avatar-modal">UPLOAD AVATAR</a> -->
+                          
+                          </div>
+                      </div>
                     
                     <!-- <div class="form-group">
                         <label class="col-md-3 control-label">Username:</label>
@@ -263,9 +275,12 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label"></label>
                         <div class="col-md-8">
-                        <!-- <input type="button" class="btn btn-primary" value="Save Changes"> -->
+                        <!-- <input type="button" class="btn btn-primary" value="UPDATE"> -->
+                        <button class="btn btn-secondary" id="profile-edit-btn">EDIT</button>
+                        <button class="btn btn-primary" id="profile-save-btn" style="display: none;">SAVE</button>
+                        <button class="btn btn-danger" id="profile-cancel-btn" style="display: none;">CANCEL</button>
                         <span></span>
-                        <input type="reset" class="btn btn-outline-primary" value="Reset" />
+                        <!-- <input type="reset" class="btn btn-outline-primary" value="Reset" /> -->
                         </div>
                     </div>
                     </form>
@@ -357,6 +372,78 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- upload avatar Modal-->
+      <div class="modal fade" id="avatar-modal" tabindex="-1" role="dialog" aria-labelledby="avatarModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="avatarModalLabel">Upload</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <input type="file" class="form-control-file" id="upload-file"> 
+                <label for="my-file"></label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <!-- <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button> -->
+              <button class="btn btn-primary btn-block" id="upload-btn">SUBMIT</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <!-- Footer -->
             <!-- <footer class="sticky-footer bg-white">
               <div class="container my-auto">
@@ -383,6 +470,23 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
+
+  <!--  Custom Logout function  -->
+  <script>
+  function logout() {
+    auth.signOut()
+    .then(res => {
+        console.log("User logged out: ", res);
+        
+        // navigate to index page
+        window.location.href = "/";
+    })
+  }
+</script>
+<!--  END Custom Logout function  -->
+
+
+
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -396,14 +500,14 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="#" onclick="logout()">Logout</a>
+          <button class="btn btn-primary" onclick="logout()" >Logout</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="../../vendor/jquery/jquery.min.js"></script>
+  <script src=" ../../vendor/jquery/jquery.min.js"></script>
   <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
@@ -417,15 +521,18 @@
   <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-storage.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-functions.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
 
   <script src="../../js/firebase/config.js"></script>
   <!-- <script src="../../js/firebase/auth.js"></script> -->
   <!-- <script src="../js/firebase/fb-data.js"></script> -->
-  <!-- <script src="../../js/users/MyAchievements.js"></script> -->
- 
+
+  <script src="../../js/users/MyProfile.js"></script>  
   <script src="../../js/listener.js"></script>
+  <script src="../../js/firebase/signout.js"></script>
+
 
 </body>
 

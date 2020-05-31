@@ -19,12 +19,12 @@ db.collection('playercards').get()
 const setupAllPlayerCards = (data) => {
 
     let html = '';
-    // console.log("all cards");
+    //console.log("All Player Cards: ", data);
 
      data.forEach(doc => {
     
         const playerCard = doc.data();
-        console.log("playerCard: ", playerCard);
+        //console.log("playerCard: ", playerCard);
 
         let myHTML = `
              <div class="col mb-4">
@@ -33,7 +33,7 @@ const setupAllPlayerCards = (data) => {
                    <div class="card-body">
                    <h5 class="card-title">${playerCard.ownerName}</h5>
                      <p class="card-text"> <strong>OWNED </strong> </p>
-                     <p class="card-text"> <small class="text-muted">Last updated 3 mins ago</small> </p>
+                     <p class="card-text"> <small class="text-muted">Date Played: ${playerCard.matchDate}</small> </p>
                    </div>
                </div>
              </div>

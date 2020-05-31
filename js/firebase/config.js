@@ -24,5 +24,10 @@
   let functions = firebase.functions();
 
 
+  // Get a reference to the storage service, which is used to create references in your storage bucket
+  const storage = firebase.storage();
+
+  //console.log("storage:", storage);
+
   // console.log("db:", db);
   // console.log("auth:", auth);

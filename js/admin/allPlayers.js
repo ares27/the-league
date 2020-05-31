@@ -5,7 +5,6 @@ const playerCard = '';
 // Get all Players data
 db.collection('players').get()
      .then(snapshot => {
-       
          //console.log("allplayers:",snapshot.docs);         
          setupAllPlayers(snapshot.docs);
      })
@@ -20,12 +19,11 @@ db.collection('players').get()
 const setupAllPlayers = (data) => {
 
     let html = '';
-    console.log("setupAllPlayers");
+    console.log("All Players: ", data);
 
      data.forEach(doc => {
     
-         const player = doc.data();
-         console.log("player: ", player);
+        const player = doc.data();
     
         let myHTML = `
              <div class="col mb-4">
@@ -33,10 +31,10 @@ const setupAllPlayers = (data) => {
                    <img src="https://cdn.weartesters.com/wp-content/uploads/2017/09/nikexea-hypervenom-3-2.jpg" class="card-img-top" alt="">
                    <div class="card-body">
                    <h5 class="card-title">${player.name}</h5>
-                     <p class="card-text"> <strong>Slogan:</strong> My day today!</p>
-                     <p class="card-text"> <strong>Wins:</strong> 10</p>
-                     <p class="card-text"> <strong>Losses:</strong> 5</p>
-                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                     <p class="card-text"> <strong>Slogan: ${player.slogan}</strong></p>
+                     <!--<p class="card-text"> <strong>Wins:</strong> 10</p>
+                     <p class="card-text"> <strong>Losses:</strong> 5</p> -->
+                     <p class="card-text"><small class="text-muted">Signed Up: ${player.createddate}</small></p>
                    </div>
                </div>
              </div>

@@ -1,6 +1,10 @@
 const createMatchForm = document.querySelector('#create-match-form')
 const playerOneSelect = document.querySelector('#playerOneSelect')
 const playerTwoSelect = document.querySelector('#playerTwoSelect')
+let matchReferee = '';
+
+
+
 
 
 
@@ -15,7 +19,7 @@ const playerOptions = (data) => {
     
         //console.log(doc.data());
         const player = doc.data();
-        console.log("player: ", player);
+        //console.log("player: ", player);
 
         let playerHTML = `
             <option value=${doc.ref.id}>${player.name}</option>
@@ -32,6 +36,65 @@ const playerOptions = (data) => {
     playerCardHTML += html;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ************************************************************************************ 
+// Create New Match Config
+//
+// ************************************************************************************
+let matchDateInput = document.querySelector('#match-date');
+let currentDateTime = new Date();
+
+//set match date
+matchDateInput.value = currentDateTime.getFullYear().toString() + '-' + (currentDateTime.getMonth() + 1).toString().padStart(2, 0) + '-' + currentDateTime.getDate().toString().padStart(2, 0);
+
+//set match referee
+auth.onAuthStateChanged(user => {
+    
+    if(user) {
+     
+        //console.log("uid:", user.uid);
+        // Set Match Referee 
+        let docRef = db.collection("players").doc(user.uid);
+        docRef.get().then(doc => {
+            if (doc.exists) {
+                const referee = doc.data(); 
+                //console.log("Referee:", referee);
+
+                // Set Referee
+                matchReferee = referee.name;                
+                $('#match-referee').val(matchReferee);
+
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch(function(error) {
+            console.log("Error getting document:", error);
+        });
+  
+    } else {
+        console.log("User logged out: ", user);  
+    }
+});
+
+
+
+
+
+
 // Create New Match
 createMatchForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -40,11 +103,14 @@ createMatchForm.addEventListener('submit', (e) => {
     // calculate winner
     let s1 = parseInt(createMatchForm['p1score'].value);
     let s2 = parseInt(createMatchForm['p2score'].value);
+    let winnerScore = 0;
+    let loserScore = 0;
     let winnerId = null;
     let winner   = '';
     let loserId  = null;
     let loser = '';
     let draw = false;
+    let matchType = parseInt(createMatchForm['match-type'].value);
 
     if(s1 > s2) {
         
@@ -52,6 +118,9 @@ createMatchForm.addEventListener('submit', (e) => {
         winner = $("#playerOneSelect option:selected").text();
         loserId = createMatchForm['playerTwoSelect'].value;
         loser = $("#playerTwoSelect option:selected").text();
+
+        winnerScore = s1;
+        loserScore = s2;
     } 
     else {
 
@@ -59,6 +128,9 @@ createMatchForm.addEventListener('submit', (e) => {
         winner = $("#playerTwoSelect option:selected").text();
         loserId = createMatchForm['playerOneSelect'].value;
         loser = $("#playerOneSelect option:selected").text();
+
+        winnerScore = s2;
+        loserScore = s1;
     } 
     if (s2 === s1) {
         
@@ -67,6 +139,9 @@ createMatchForm.addEventListener('submit', (e) => {
         loserId = null;
         loser = '';
         draw = true;
+
+        winnerScore = 0;
+        loserScore = 0;
     }
     ////////////////////
     console.log(parseInt(createMatchForm['p1score'].value), parseInt(createMatchForm['p2score'].value));
@@ -74,8 +149,11 @@ createMatchForm.addEventListener('submit', (e) => {
 
 
   
-        // Create New Match
+    // Create New Match
     db.collection('matches').add({
+        date: Date.now(),
+        createdDate: Date().substring(0, 15),
+        matchDate: createMatchForm['match-date'].value,
         p1name: $("#playerOneSelect option:selected").text(),
         playerone: createMatchForm['playerOneSelect'].value,
         playeronescore: createMatchForm['p1score'].value,
@@ -86,23 +164,29 @@ createMatchForm.addEventListener('submit', (e) => {
         winner: winner,
         loserId: loserId,
         loser: loser,
-        draw: draw 
+        draw: draw,
+        matchType: matchType,
+        matchReferee, matchReferee 
     }).then((res) => {
 
-            console.log(res);
+        console.log(res);
 
-            // reset form input
-            createMatchForm.reset();
+        // reset form input
+        createMatchForm.reset();
 
-            document.querySelector('.save-btn').style.display = 'none';
-            $('.alert-success-message').text("Match created successfully.");
+        document.querySelector('.save-btn').style.display = 'none';
+        $('.alert-success-message').text("Match created successfully.");
             
 
         // Create Player Card
         return db.collection('playercards').add({
+            createdDate: Date.now(),
+            matchDate: createMatchForm['match-date'].value,
             ownerId: winnerId,
             matchId: res.id,
-            ownerName: winner           
+            ownerName: winner,
+            winnerscore: winnerScore,
+            loserscore: loserScore
         })
     })
     .then((res) => {
@@ -116,3 +200,10 @@ createMatchForm.addEventListener('submit', (e) => {
     })
 
 })
+
+
+
+// ************************************************************************************ 
+// END Match Config
+//
+// ************************************************************************************

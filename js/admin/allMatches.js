@@ -16,18 +16,19 @@ db.collection('matches').get().then(snapshot => {
 const setupAllMatches = (data) => {
 
     let html = '';
-
+    //console.log("match data: ", data, Date().substring(0, 15));
+    
     data.forEach(doc => {
     
         const match = doc.data();
-        console.log("match: ", match);
+        //console.log("match: ", match);
     
         let myHTML = `
             <div class="col mb-4">
                 <div class="card player-card text-center" style="width: 20em;">
                     <img src="https://cdn.weartesters.com/wp-content/uploads/2017/09/nikexea-hypervenom-3-2.jpg" class="card-img-top" alt="">
                     <div class="card-body">
-                    <h5 class="card-title">Match Card</h5>
+                    <!--<h5 class="card-title">Match Card</h5>-->
                     <p>    
                         <div class="row justify-content-between">
                             <div class="col">${match.p1name}</div>
@@ -43,7 +44,7 @@ const setupAllMatches = (data) => {
                         </div>
                     <p/>
                     <p class="card-text"><small class="text-muted">Winner: ${match.winner}</small></p>
-                    <p class="card-text"> <small class="text-muted">Last updated 3 mins ago</small> </p>
+                    <p class="card-text"> <small class="text-muted">${match.matchDate}</small> </p>
                     </div>
                 </div>
             </div>

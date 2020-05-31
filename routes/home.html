@@ -18,6 +18,8 @@
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin/sb-admin-2.min.css" rel="stylesheet">
 
+  <link rel="stylesheet" href="../css/admin/addMatch.css">
+
 </head>
 
 <body id="page-top">
@@ -66,8 +68,8 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Admin Panel:</h6> 
-            <a class="collapse-item" href="./AllMatches.html">All Matches</a>
-            <a class="collapse-item" href="./AllPlayers.html">All Players</a>
+            <a class="collapse-item" href="./admin/AllMatches.html">All Matches</a>
+            <a class="collapse-item" href="./admin/AllPlayers.html">All Players</a>
             <a class="collapse-item admin" href="../../routes/admin/AllPlayerCards.html">All Player Cards</a>
           </div>
         </div>
@@ -330,32 +332,50 @@
 			<div class="modal-body">
 
 				<form id="create-match-form">
-					<div class="row">
-					  <div class="col">
-						<select class="form-control" id="playerOneSelect">
-				
-						  </select>
-						  <input type="number" id="p1score" class="form-control" placeholder="Score:">
-					  </div>
-					  <div class="col">
-						<select class="form-control" id="playerTwoSelect">
-							
-						  </select>
-						<input type="number" id="p2score" class="form-control" placeholder="Score:">
-					  </div>
-					</div>
-					<button type="submit" class="btn btn-primary btn-block mt-3 save-btn">SAVE</button>
+          
 
-					<div class="alert-success-message text-center  mt-2" role="alert">
+          <div class="row mb-2">
+            <div class="col">
+              <label for="match-referee">Referee:</label>
+              <input type="text" class="form-control" id="match-referee" readonly>
+            </div>
+            
+          </div>
 
+          <div class="row mb-2">
+            <div class="col">
+              <label for="match-type">Match Type:</label>
+              <select class="form-control" id="match-type">
+                <option value="11">11</option>
+                <option value="21">21</option>
+              </select>
+            </div>
+            <div class="col">
+              <label for="match-date">Date:</label>
+              <input type="datetime" id="match-date" class="form-control" readonly>
+            </div>
           </div>
           
-          <div class="alert-warning-message text-center  mt-2" role="alert">
+          <div class="row">
 
-					</div>
+              <div class="col">
+                <label for="playerOneSelect">Player One:</label>
+                <select class="form-control mb-2" id="playerOneSelect"> </select>
+                <input type="number" min="0" id="p1score" class="form-control" placeholder="Score:">
+              </div>
+            
+              <div class="col mb-2">
+                <label for="playerTwoSelect">Player Two:</label>
+                <select class="form-control mb-2" id="playerTwoSelect"> </select>
+                <input type="number" min="0" id="p2score" class="form-control" placeholder="Score:">
+              </div>
 
+          </div>
+					<button type="submit" class="btn btn-primary btn-block mt-3 save-btn">SAVE</button>
+					<div class="alert-success-message text-center  mt-2" role="alert"> </div>
+          <div class="alert-warning-message text-center  mt-2" role="alert"> </div>
 
-					  
+				  
 				</form>
 
 			</div>
@@ -429,6 +449,7 @@
   <!-- <script src="../js/admin/allPlayers.js"></script> -->
   <script src="../js/admin/addMatch.js"></script>
   <script src="../js/listener.js"></script>
+  <script src="../js/main.js"></script>
 
 
 </body>
