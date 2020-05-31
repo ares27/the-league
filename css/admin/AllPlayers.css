@@ -1,0 +1,71 @@
+body {
+    /* 
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(''); 
+    overflow: hidden;
+    */
+}
+
+
+.card {
+    display: grid;
+    grid-template-columns: 280px;
+    grid-template-rows: 190px 190px 60px;
+    grid-template-areas: "image" "text" "stats";
+  
+    border-radius: 18px;
+    background: white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    font-family: roboto;
+    text-align: center;
+    margin: 10px;
+  }
+
+  .card-image {
+    grid-area: image;
+    background: url("https://i2.wp.com/knowing.design/wp-content/uploads/2018/07/fifa-world-cup-2018.jpg?fit=2560%2C1600&ssl=1");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+  .card-text {
+    grid-area: text;
+    margin: 10px;
+  }
+  .card-text .date {
+    color: rgb(255, 7, 110);
+    font-size:13px;
+  }
+  .card-text p {
+    color: grey;
+    font-size:15px;
+    font-weight: 300;
+  }
+  .card-text h2 {
+    margin-top:0px;
+    font-size:28px;
+  }
+  .card-stats {
+    grid-area: stats; 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: rgb(104, 105, 107, .75);
+  }
+
+  .card-stats .stat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  
+    color: white;
+    padding:10px;
+  }
