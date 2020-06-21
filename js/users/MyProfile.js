@@ -3,6 +3,9 @@ let p1Games = '';
 let p2Games = '';
 let totalGames = '';
 let totalWins = '';
+let profileUrl = '';
+let avatarFileName = '';
+
 
 // Listen for auth state
 auth.onAuthStateChanged(user => {
@@ -12,14 +15,17 @@ auth.onAuthStateChanged(user => {
         
         console.log("User logged in: ", user);
         setupUserProfile(user);
-       
-           
         
     } else {
         console.log("User logged out: ", user);
    
     }
 });
+
+
+
+
+
 
 
 const setupUserProfile = (user) => {
@@ -29,6 +35,9 @@ const setupUserProfile = (user) => {
 
     // Set userId
     userId = user.uid;
+
+   
+
     
     // Get player info
     db.collection("players").doc(userRef).get().then(doc => {  
@@ -52,7 +61,8 @@ const setupUserProfile = (user) => {
         p1Games = snapshot.docs.length; 
         //console.log(p1Games);
     })
-   
+    
+    
     // Get p2Games
     matchRef.where("playertwo", "==", userRef).get().then(snapshot => {
         p2Games = snapshot.docs.length;
@@ -62,31 +72,29 @@ const setupUserProfile = (user) => {
 
         $('#my-total-games').val(totalGames).attr('readonly', true);;
     })
-
-    // Get total Wins
+    
+    
+    
+    // Total Wins
     matchRef.where("winnerId", "==", userRef).get().then(snapshot => {
         totalWins = snapshot.docs.length;
         //console.log("totalWins: ", totalWins);
-                
-
         $('#my-total-wins').val(totalWins).attr('readonly', true);
     })
+    
 
+    
+    // Total Losses
     matchRef.where("loserId", "==", userRef).get().then(snapshot => {
         let totalLosses = snapshot.docs.length;
         //console.log("totalLosses: ", totalLosses);
         $('#my-total-losses').val(totalLosses).attr('readonly', true);
     })
+    
 
     
-    
-    //console.log(totalGames);
-
-    //console.log(matchRef.where("playertwo", "==", userRef).get());
     
 }
-
-
 
 
 
@@ -99,6 +107,9 @@ const editBtn = document.querySelector('#profile-edit-btn')
 const saveBtn = document.querySelector('#profile-save-btn')
 const cancelBtn = document.querySelector('#profile-cancel-btn')
 
+
+
+// Edit
 editBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
@@ -115,6 +126,7 @@ editBtn.addEventListener('click', (e) => {
     }, 1500)
 })
 
+// Cancel
 cancelBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
@@ -131,6 +143,7 @@ cancelBtn.addEventListener('click', (e) => {
     }, 1500)
 })
 
+// Save
 saveBtn.addEventListener('click', (e) => {
     e.preventDefault();
 

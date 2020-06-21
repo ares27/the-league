@@ -49,6 +49,20 @@ auth.onAuthStateChanged(user => {
         }).catch(err => {
             console.log("Error - cannot get total players: ", err);
         });
+
+        // Get avatar fileName
+        storage.refFromURL("gs://the-league-66947.appspot.com/playerAvatar/"+user.uid).list()
+        .then(doc => {
+            const item = doc.items[0];
+
+            item.getDownloadURL().then(res => {
+                console.log("res:", res)
+
+                // insert avatar
+                $('.img-profile').attr('src', res);
+                
+            });      
+        })
         
 
 

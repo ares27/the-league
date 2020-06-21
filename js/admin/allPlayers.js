@@ -24,10 +24,12 @@ const setupAllPlayers = (data) => {
      data.forEach(doc => {
     
         const player = doc.data();
+        //console.log("doc:", doc.id);
+                    
     
         let myHTML = `
             <div class="card">
-                <div class="card-image"></div>
+                <div class="card-image" style="background-image: url(${player.avatarUrl})"></div>
                 <div class="card-text">
                 <span class="date">4 days ago</span>
                 <h3>${player.name}</h3>
